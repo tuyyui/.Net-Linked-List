@@ -1,0 +1,66 @@
+using System;
+
+namespace ConsoleApp2
+{
+    class  Node
+    {
+        public int data;
+        public Node Next;
+        public Node(int data_in)
+        {
+            data = data_in;
+        }
+        public Node() { }
+
+    }
+     class LinkedList
+    {
+      private Node Head;
+      
+
+        public void AddtoNode(int _data)
+        {
+            Node Curr = Head;
+            if(Head == null)
+            {
+                Head = new Node();
+                Head.data = _data;
+            }
+            else
+            {
+                while (Curr.Next != null)
+                {
+                    Curr = Curr.Next;
+
+                }
+                    Curr.Next = new Node();
+                    Curr.Next.data = _data;
+                   
+            }
+        }
+        
+        public void Trans()
+        {
+            Node Curr = Head;
+            while(Curr != null)
+            {
+          
+                Console.WriteLine(Curr.data);
+              
+                Curr = Curr.Next;
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            LinkedList LL = new LinkedList();
+          
+            LL.AddtoNode(23);
+            LL.AddtoNode(20);
+            LL.AddtoNode(90);
+            LL.Trans();
+        }
+    }
+}
